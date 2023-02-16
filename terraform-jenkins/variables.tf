@@ -21,3 +21,7 @@ variable "instance_type" {
 variable "public_key_location" {
   description = "The location of the public key to use for the EC2 instance"
 }
+
+variable "region" {
+  description = "The region to use for the S3 bucket"
+}

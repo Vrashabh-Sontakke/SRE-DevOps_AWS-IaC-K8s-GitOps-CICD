@@ -14,7 +14,7 @@ data "aws_ami" "latest-amazon-linux-image" {
 }
 
 resource "aws_key_pair" "ssh-key" {
-    key_name   = "terraform-jenkins"
+    key_name   = "jenkins-server-key"
     public_key = file(var.public_key_location)
 }
 
@@ -23,11 +23,11 @@ resource "aws_instance" "jenkins-server" {
   instance_type = var.instance_type
   key_name      = aws_key_pair.ssh-key.key_name
   subnet_id     = aws_subnet.jenkins-subnet-1.id
-  vpc_security_group_ids = [aws_security_group.default-sg.id]
+  vpc_security_group_ids = [aws_default_security_group.default-sg.id]
   availability_zone = var.availability_zone
   associate_public_ip_address = true
   user_data = file("jenkins-server-script.sh")
-  tags {
-    Name = ${var.env_prefix}-server
+  tags = {
+    Name = "${var.env_prefix}-server"
   }
 }
