@@ -1,1 +1,1 @@
-# SRE-DevOps_AWS-IaC-K8s-GitOps-CICD
+# SRE-DevOps_IaC-K8s-GitOps-CICD
