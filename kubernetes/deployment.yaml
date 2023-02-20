@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: kubernetes-demo
-          image: valonjanuzaj/kubernetes-demo:latest
+          image: vrash/kubernetes-demo:latest
           ports:
             - containerPort: 8000
           envFrom:
